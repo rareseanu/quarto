@@ -14,6 +14,9 @@ public:
 	Board() = default;
 
 	std::optional<Piece>& operator[] (const Position& pos);
+	const std::optional<Piece>& operator[](const Position& position) const;
+
+	friend std::ostream& operator <<(std::ostream& os, const Board& b);
 
 private:
 	static const size_t kWidth = 4;

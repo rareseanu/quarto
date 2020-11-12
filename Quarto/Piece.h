@@ -30,13 +30,18 @@ public:
 	};
 
 public:
+	Piece() = default;
 	Piece(Body body, Color color, Height height, Shape shape);
+	Piece(const Piece& piece);
+	Piece(Piece&& piece);
 
 	Body GetBody() const;
 	Color GetColor() const;
 	Height GetHeight() const;
 	Shape GetShape() const;
 
+	Piece& operator=(const Piece& other);
+	Piece& operator=(Piece&& other);
 	friend std::ostream& operator << (std::ostream& os, const Piece& piece);
 
 private:
